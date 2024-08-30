@@ -18,12 +18,12 @@ public class locators {
 		
 		// implicit wait because of line no 45
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-		
-		
+				
 		
 		//To Load the webpage
 		driver.get("https://rahulshettyacademy.com/locatorspractice/");
 		
+// ----- ENTER WRONG ID PASS --------		
 		
 		//ID and Name Locator
 		driver.findElement(By.id("inputUsername")).sendKeys("Kaushik");
@@ -45,7 +45,7 @@ public class locators {
 		//we will Get error because the error message will only pop out after entering the userId and Pass. but this line will try to find the message so fast. 
 		
 		
-		
+// --- FOGET PASS --- 		
 		//Link Text Locatpr 
 		driver.findElement(By.linkText("Forgot your password?")).click();
 		
@@ -72,14 +72,34 @@ public class locators {
 		
 		
 		
-		//Parent/child Selector
+		//Parent/child Selector by Xpath
 		driver.findElement(By.xpath("//form/input[3]")).sendKeys("933333232");
 		
 		
 		driver.findElement(By.cssSelector(".reset-pwd-btn")).click();
 		
 		
+		//Parent/child Selector by CSS selector
 		System.out.println(driver.findElement(By.cssSelector("form p")).getText());
+		
+		
+		driver.findElement(By.cssSelector("button.go-to-login-btn")).click();
+		
+		
+		Thread.sleep(1000);
+		
+// ------Entering right ID PASS -------- 
+		
+		
+		// changing ID to CSS selector using #
+		driver.findElement(By.cssSelector("#inputUsername")).sendKeys("rahul");
+		
+		
+		// Regular expression for partial attribute 
+		driver.findElement(By.cssSelector("input[type*='pass']")).sendKeys("rahulshettyacademy");
+		
+		// Regular expression xpath
+		driver.findElement(By.xpath("//button[@class='submit signInBtn']")).click();
 		
 	}
 
