@@ -101,6 +101,10 @@ public class locators {
 		// Regular expression xpath
 		driver.findElement(By.xpath("//button[@class='submit signInBtn']")).click();
 		
+		
+		Thread.sleep(1000);
+		System.out.println(driver.findElement(By.tagName("p")).getText());
+		
 	}
 
 }
